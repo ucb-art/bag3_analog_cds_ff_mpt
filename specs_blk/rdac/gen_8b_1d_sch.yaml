@@ -1,0 +1,87 @@
+dut_class: bag3_analog.schematic.rdac.bag3_analog__rdac
+impl_lib: AAA_RDAC_8B_1dec
+impl_cell: AA_rdac_8B_1dec
+root_dir: gen_outputs/rdac
+
+_default_gate_params: &default_gate_params
+  lch: 36
+  w_p: 4
+  w_n: 4
+  th_p: lvt
+  th_n: lvt
+
+params:
+  num_dec: 1
+
+  dec_params:
+    col_params:
+      decoder_type: column
+      num_rows: 32
+      num_sel: 3
+      and_params:
+        export_outb: true
+        inv_params:
+          <<: *default_gate_params
+          seg_n: 2
+          seg_p: 2
+        nand_params_list:
+        - <<: *default_gate_params
+          num_in: 3
+          seg_n: 2
+          seg_p: 2
+          shared_mid: true
+        nor_params:
+          <<: *default_gate_params
+          num_in: 1
+          seg_n: 2
+          seg_p: 2
+      inv_params:
+        <<: *default_gate_params
+        seg_n: 2
+        seg_p: 2
+      pg_params:
+        <<: *default_gate_params
+        seg_n: 2
+        seg_p: 2
+    row_params:
+      decoder_type: row
+      num_sel: 5
+      and_params:
+        export_outb: true
+        inv_params:
+          <<: *default_gate_params
+          seg_n: 2
+          seg_p: 2
+        nand_params_list:
+        - <<: *default_gate_params
+          num_in: 3
+          seg_n: 2
+          seg_p: 2
+        - <<: *default_gate_params
+          seg_n: 2
+          seg_p: 2
+        nor_params:
+          <<: *default_gate_params
+          seg_n: 2
+          seg_p: 2
+      inv_params:
+        <<: *default_gate_params
+        seg_n: 2
+        seg_p: 2
+      pg_params:
+        <<: *default_gate_params
+        seg_n: 2
+        seg_p: 2
+
+  res_params:
+    bot_vss: true
+    l: 420
+    mres_info: !!python/tuple [180, 100, 3]
+    nx: 10
+    nx_dum: 1
+    ny: 34
+    ny_dum: 1
+    res_type: standard
+    sup_name: VDD
+    top_vdd: true
+    w: 360

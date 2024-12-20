@@ -1,0 +1,15 @@
+lib_name: AAA_RDAC
+cell_name: AA_rdac
+in_terms:  # must be SAME ORDER as pins in extracted netlist
+  - sel<4:0>
+out_terms:  # must be SAME ORDER as pins in extracted netlist
+  - out
+io_terms:  # must be SAME ORDER as pins in extracted netlist
+  - VDD
+  - VSS
+nets:
+  []
+props:
+  {}
+is_prim: false
+ignore: false

@@ -1,0 +1,25 @@
+gen_specs_file: data/bag3_analog/specs_blk/rdac/gen.yaml
+
+#static_info: data/bag3_analog/specs_blk/rdac/rdac_info.yaml
+#impl_lib: AAA_RDAC
+#root_dir: gen_outputs/rdac
+meas_class: bag3_analog.measurement.rdac.RDACMeas
+meas_rel_dir: meas
+meas_name: rdac_tran
+
+meas_params:
+  sim_envs: ['tt_25', 'ss_m40', 'ff_125']
+  tbm_specs:
+    sim_params:
+      t_rst: 1.0e-9
+      t_rst_rf: 30.0e-12
+      t_per: 200.0e-9
+      t_rf: 30.0e-12
+      c_load: 100.0e-15
+    pwr_domain:
+      sel: [VSS, VDD]
+      out: [VSS, VDD]
+    sup_values:
+      VDD: {'tt_25': 0.9, 'ss_m40': 0.9, 'ff_125': 0.9}
+      VSS: 0.0
+  num_sel: 8
